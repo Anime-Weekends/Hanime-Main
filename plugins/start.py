@@ -173,14 +173,14 @@ async def start_command(client: Client, message: Message):
                 if snt_msgs:
                     if (SECONDS == 0):
                         return
-                    notification_msg = await message.reply(f"<b>🌺 <u>Notice</u> 🌺</b>\n\n<b>This file will be  deleted in {get_exp_time(SECONDS)}. Please save or forward it to your saved messages before it gets deleted.</b>")
+                    notification_msg = await message.reply(f"<b><blockquote expandable><u>Notice</u> 🌺</b>\n\n<b>This file will be  deleted in {get_exp_time(SECONDS)}. Please save or forward it to your saved messages before it gets deleted.</blockquote></b>")
                     await asyncio.sleep(SECONDS)    
                     for snt_msg in snt_msgs:    
                         try:    
                             await snt_msg.delete()  
                         except: 
                             pass    
-                    await notification_msg.edit("<b>Your file has been successfully deleted! 😼</b>")  
+                    await notification_msg.edit("<b><blockquote>Your file has been successfully deleted!</blockquote></b>")  
                     return
             except:
                     newbase64_string = await encode(f"sav-ory-{_string}")
@@ -194,16 +194,16 @@ async def start_command(client: Client, message: Message):
                     link = await get_shortlink(SHORTLINK_API_URL, SHORTLINK_API_KEY,f'{newLink}')
                     if USE_PAYMENT:
                         btn = [
-                        [InlineKeyboardButton("Click Here 👆", url=link),
-                        InlineKeyboardButton('How to open this link 👆', url=TUT_VID)],
-                        [InlineKeyboardButton("Buy Premium plan", callback_data="buy_prem")]
+                        [InlineKeyboardButton("Vᴇʀɪғʏ ʜᴇʀᴇ", url=link),
+                        InlineKeyboardButton('Tᴜᴛᴏʀɪᴀʟ', url=TUT_VID)],
+                        [InlineKeyboardButton("Pʀᴇᴍɪᴜᴍ", callback_data="buy_prem")]
                         ]
                     else:
                         btn = [
-                        [InlineKeyboardButton("Click Here 👆", url=link)],
-                        [InlineKeyboardButton('How to open this link 👆', url=TUT_VID)]
+                        [InlineKeyboardButton("Vᴇʀɪғʏ ʜᴇʀᴇ", url=link)],
+                        [InlineKeyboardButton('Tᴜᴛᴏʀɪᴀʟ', url=TUT_VID)]
                         ]
-                    await message.reply(f"Total clicks {clicks}. Here is your link 👇.", reply_markup=InlineKeyboardMarkup(btn), protect_content=False, quote=True)
+                    await message.reply(f"<blockquote>Tᴏᴛᴀʟ ᴄʟɪᴄᴋs {clicks}</blockquote>/n<blockquote><a href="https://t.me/Cultured_Weekends">Hᴇʀᴇ ɪs ʏᴏᴜʀ ʟɪɴᴋ</a></blockquote>", reply_markup=InlineKeyboardMarkup(btn), protect_content=False, quote=True)
                     return
     
     for i in range(1):
@@ -218,8 +218,8 @@ async def start_command(client: Client, message: Message):
         reply_markup = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("😊 About Me", callback_data="about"),
-                    InlineKeyboardButton("🔒 Close", callback_data="close")
+                    InlineKeyboardButton("Aʙᴏᴜᴛ", callback_data="about"),
+                    InlineKeyboardButton("Cʟᴏsᴇ", callback_data="close")
                 ]
             ]
         )
