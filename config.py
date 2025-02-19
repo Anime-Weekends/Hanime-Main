@@ -41,7 +41,7 @@ DB_URL = os.environ.get("DB_URL", "mongodb+srv://jeffysamaweekends:jeffysamaweek
 DB_NAME = os.environ.get("DB_NAME", "HanimeBaby")
 
 #Collection of pics for Bot // #Optional but atleast one pic link should be replaced if you don't want predefined links
-PICS = (os.environ.get("PICS", "https://envs.sh/Oy.jpg")).split() #Required
+IMAGE = (os.environ.get("PICS", "https://envs.sh/Oy.jpg")).split() #Required
 #for creating telegram thread for bot to improve performance of the bot
 TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "60"))
 #your start default command message.
