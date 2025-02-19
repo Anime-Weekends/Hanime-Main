@@ -9,12 +9,12 @@ async def cb_handler(client: Bot, query: CallbackQuery):
     data = query.data
     if data == "about":
         await query.message.edit_text(
-            text = f"<b>○ Language : <code>Python3</code></b> 🐍\n<b>○ Version : v1 🫏</b>\n<b>○ Developer : <code>@savoryrabbit</code> 😼</b>",
+            text = f"<b><b><blockquote expandable>◈ Oᴡɴᴇʀ: <a href='https://t.me/Cultured_Weekends'>ᴄʟɪᴄᴋ ʜᴇʀᴇ</a>/n◈ Dᴇᴠᴇʟᴏᴘᴇʀ: <a href='https://t.me/Cultured_Weekends'>ᴄʟɪᴄᴋ ʜᴇʀᴇ</a>/n◈ Mᴀɪɴ Cʜᴀɴɴᴇʟ: <a href='https://t.me/Cultured_Weekends'>ᴄʟɪᴄᴋ ʜᴇʀᴇ</a>/n◈ Mᴏᴠɪᴇ Cʜᴀɴɴᴇʟ: <a href='https://t.me/Movie_Weekends'>ᴄʟɪᴄᴋ ʜᴇʀᴇ</a>/n◈ Eᴍɪɴᴇɴᴄᴇ Sᴏᴄɪᴇᴛʏ: <a href='https://t.me/Cultured_Weekends'>ᴄʟɪᴄᴋ ʜᴇʀᴇ</a>/n◈ Bᴏᴛ Uᴘᴅᴀᴛᴇs: <a href='https://t.me/Cultured_Weekends'>ᴄʟɪᴄᴋ ʜᴇʀᴇ</a></b></blockquote></b>",
             disable_web_page_preview = True,
             reply_markup = InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("🔒 Close", callback_data = "close")
+                        InlineKeyboardButton("Cʟᴏsᴇ", callback_data = "close")
                     ]
                 ]
             )
@@ -35,7 +35,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
                         InlineKeyboardButton("Send Payment Screenshot(ADMIN) 📸", url=(SCREENSHOT_URL))
                     ],
                     [
-                        InlineKeyboardButton("🔒 Close", callback_data = "close")
+                        InlineKeyboardButton("Cʟᴏsᴇ", callback_data = "close")
                     ]
                 ]
             )
