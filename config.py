@@ -10,8 +10,8 @@ import logging
 from logging.handlers import RotatingFileHandler
 
 #force user to join your backup channel leave 0 if you don't need.
-FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "-1002358606406"))
-FORCE_SUB_CHANNEL2 = int(os.environ.get("FORCE_SUB_CHANNEL2", "-1002412738592"))
+FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "0"))
+FORCE_SUB_CHANNEL2 = int(os.environ.get("FORCE_SUB_CHANNEL2", "0"))
 
 if FORCE_SUB_CHANNEL > FORCE_SUB_CHANNEL2:
     temp = FORCE_SUB_CHANNEL2 
@@ -24,7 +24,7 @@ BOT_STATS_TEXT = os.environ.get("BOTS_STATS_TEXT","<b>BOT UPTIME 🌺</b>\n{upti
 USER_REPLY_TEXT = os.environ.get("USER_REPLY_TEXT", "Don't send me messages directly I'm only File Share bot! 📌")
 
 #your bot token here from https://telegram.me/BotFather
-TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "7912944940:AAE8pUc4mzk9ra2YVd-6ju82lO5PN8E52mg") 
+TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "7912944940:AAH3IsUn8xbLLHJzxD4HSKXqJ8uGBVFlPBI") 
 #your api id from https://my.telegram.org/apps
 APP_ID = int(os.environ.get("APP_ID", "28744454"))
 #your api hash from https://my.telegram.org/apps
