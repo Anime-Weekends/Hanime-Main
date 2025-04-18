@@ -491,17 +491,23 @@ async def restart(client, message):
 
 
 if USE_PAYMENT:
-    @Bot.on_message(filters.command('add_prem') & filters.private & filters.user(ADMINS))
+@Bot.on_message(filters.command('add_prem') & filters.private & filters.user(ADMINS))
 async def add_user_premium_command(client: Bot, message: Message):
     while True:
         try:
-            user_id = await client.ask(text="Enter id of user 🔢\n /cancel to cancel : ", chat_id=message.from_user.id, timeout=60)
+            user_id = await client.ask(
+                text="Enter id of user 🔢\n /cancel to cancel : ",
+                chat_id=message.from_user.id,
+                timeout=60
+            )
         except Exception as e:
             print(e)
-            return  
+            return
+
         if user_id.text == "/cancel":
             await user_id.edit("Cancelled 😉!")
             return
+
         try:
             await Bot.get_users(user_ids=user_id.text, self=client)
             break
@@ -514,7 +520,19 @@ async def add_user_premium_command(client: Bot, message: Message):
     # Ask for the premium duration
     while True:
         try:
-            timeforprem = await client.ask(text="Enter the amount of time you want to provide the premium \nChoose correctly. It's not reversible.\n\n⁕ <code>1</code> for 7 days.\n⁕ <code>2</code> for 1 Month\n⁕ <code>3</code> for 3 Month\n⁕ <code>4</code> for 6 Month\n⁕ <code>5</code> for 1 year.🤑", chat_id=message.from_user.id, timeout=60)
+            timeforprem = await client.ask(
+                text=(
+                    "Enter the amount of time you want to provide the premium\n"
+                    "Choose correctly. It's not reversible.\n\n"
+                    "⁕ <code>1</code> for 7 days.\n"
+                    "⁕ <code>2</code> for 1 Month\n"
+                    "⁕ <code>3</code> for 3 Month\n"
+                    "⁕ <code>4</code> for 6 Month\n"
+                    "⁕ <code>5</code> for 1 year.🤑"
+                ),
+                chat_id=message.from_user.id,
+                timeout=60
+            )
         except Exception as e:
             print(e)
             return
@@ -527,16 +545,14 @@ async def add_user_premium_command(client: Bot, message: Message):
             break
 
     timeforprem = int(timeforprem.text)
-    if timeforprem == 1:
-        timestring = "7 days"
-    elif timeforprem == 2:
-        timestring = "1 month"
-    elif timeforprem == 3:
-        timestring = "3 months"
-    elif timeforprem == 4:
-        timestring = "6 months"
-    elif timeforprem == 5:
-        timestring = "1 year"
+
+    timestring = {
+        1: "7 days",
+        2: "1 month",
+        3: "3 months",
+        4: "6 months",
+        5: "1 year"
+    }.get(timeforprem, "unknown duration")
 
     # Try to add premium time to the user
     try:
@@ -545,11 +561,10 @@ async def add_user_premium_command(client: Bot, message: Message):
             await message.reply("Premium added! 🤫")
             await client.send_message(
                 chat_id=user_id,
-                text=f"Update for you\n\nPremium plan of {timestring} added to your account. 🤫",
+                text=f"Update for you\n\nPremium plan of {timestring} added to your account. 🤫"
             )
         else:
             await message.reply("❌ Failed to add premium. Please check the logs. 😖")
-
     except Exception as e:
         print(e)
         await message.reply("Some error occurred.\nCheck logs.. 😖\nIf you got the premium added message, then it's ok.")
